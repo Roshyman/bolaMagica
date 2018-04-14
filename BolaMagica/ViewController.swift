@@ -24,13 +24,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnEjecuta(_ sender: UIButton) {
-        
-        var indice : Int = 0
-        indice = genValor()
-        imgBola.image = UIImage(named: arregloBolas[indice])
-        
-    
-    
+        imgBola.image = UIImage(named: arregloBolas[genValor()])
     }
     
     func genValor() -> Int{
@@ -40,6 +34,11 @@ class ViewController: UIViewController {
             valor = Int(arc4random_uniform(15))
         }
         return valor
+    }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        
+        imgBola.image = UIImage(named: arregloBolas[genValor()])
     }
 
 }
